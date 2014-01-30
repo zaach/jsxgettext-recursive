@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Recursively search and extract gettext strings",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaach/jsxgettext-recursive.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
