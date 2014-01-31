@@ -14,13 +14,16 @@ function extractStrings(options) {
   }).join('|');
 
   var nameRegex = new RegExp('(' + extensions + ')$');
+  var cwd = process.cwd() + path.sep;
 
   walker.on('file', function(root, stats, next) {
-    var fileName = path.join(root, stats.name);
+    var fullFileName = path.join(root, stats.name);
+    var fileName = fullFileName.replace(cwd, '');
+
     var extension = fileName.match(nameRegex)[0];
     if (! extension) return next();
 
-    var contents = fs.readFileSync(fileName, 'utf8');
+    var contents = fs.readFileSync(fullFileName, 'utf8');
     if (extension) {
       if (! sources[options.parsers[extension]]) {
         sources[options.parsers[extension]] = {};
