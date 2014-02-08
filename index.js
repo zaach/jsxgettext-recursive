@@ -20,8 +20,9 @@ function extractStrings(options) {
     var fullFileName = path.join(root, stats.name);
     var fileName = fullFileName.replace(cwd, '');
 
-    var extension = fileName.match(nameRegex)[0];
-    if (! extension) return next();
+    var extension = fileName.match(nameRegex);
+    if (! extension || !extension[0]) return next();
+    extension = extension[0];
 
     var contents = fs.readFileSync(fullFileName, 'utf8');
     if (extension) {
