@@ -18,6 +18,9 @@ function extractStrings(options) {
 
   walker.on('file', function(root, stats, next) {
     var fullFileName = path.join(root, stats.name);
+    if (options.exclude && options.exclude.test(fullFileName)) {
+      return next();
+    }
     var fileName = fullFileName.replace(cwd, '');
 
     var extension = fileName.match(nameRegex);

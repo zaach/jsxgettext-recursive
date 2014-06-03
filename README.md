@@ -15,9 +15,10 @@ var extract = require('jsxgettext-recursive');
 var walker = extract({
   'input-dir': './app/scripts',
   'output-dir': './locales',
-  'output': 'client.pot',
+  output: 'client.pot',
+  exclude: /dist/,
   'join-existing': false,
-  'keyword': 't',
+  keyword: 't',
   parsers: {
     '.js': 'javascript',
     '.mustache': 'handlebars'
