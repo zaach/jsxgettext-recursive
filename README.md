@@ -2,6 +2,10 @@
 
 Recursively search and extract gettext strings.
 
+## Install
+
+    npm install jsxgettext-recursive
+
 ## Example
 
 ```
