@@ -44,7 +44,16 @@ function extractStrings(options) {
           generator;
 
       if (key !== 'javascript') {
-        generator = 'generateFrom' + key[0].toUpperCase() + key.slice(1).toLowerCase();
+        switch (key.toLowerCase()) {
+          case 'ejs':
+            generator = 'generateFromEJS';
+              break;
+          case 'swig':
+            generator = 'generateFromswig';
+              break;
+          default:
+            generator = 'generateFrom' + key[0].toUpperCase() + key.slice(1).toLowerCase();
+        };
         if (! jsxgettext[generator]) throw new Error('No such jsxgettext generator: ' + key);
 
         strings = jsxgettext.generate.apply(jsxgettext, jsxgettext[generator](sources[key], options));
