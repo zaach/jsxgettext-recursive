@@ -39,7 +39,7 @@ function extractStrings(options) {
 
   walker.on('end', function() {
     Object.keys(sources).forEach(function(key, i) {
-      if (i > 0) options['join-existing'] = true;
+      if (i > 0) options.joinExisting = true;
       var strings,
           generator;
 
@@ -53,7 +53,7 @@ function extractStrings(options) {
               break;
           default:
             generator = 'generateFrom' + key[0].toUpperCase() + key.slice(1).toLowerCase();
-        };
+        }
         if (! jsxgettext[generator]) throw new Error('No such jsxgettext generator: ' + key);
 
         strings = jsxgettext.generate.apply(jsxgettext, jsxgettext[generator](sources[key], options));
