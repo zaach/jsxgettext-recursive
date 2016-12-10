@@ -1,6 +1,6 @@
 {
   "name": "jsxgettext-recursive",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Recursively search and extract gettext strings",
   "main": "index.js",
   "repository": {
