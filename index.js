@@ -60,7 +60,7 @@ function extractStrings(options) {
       } else {
         strings = jsxgettext.generate(sources[key], options);
       }
-      fs.writeFileSync(path.resolve(options['output-dir'] || '', options.output), strings, "utf8");
+      fs.writeFileSync(path.resolve(options['outputDir'] || '', options.output), strings, "utf8");
     });
   });
 
